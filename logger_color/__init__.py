@@ -39,6 +39,6 @@ __summary__ = "Different logging levels for stram (terminal) and file. Color the
               "Has additional levels for diagnostics: DIAG_INFO, DIAG_WARNING."
 __author__ = "Vladimir Prusakov"
 __email__ = "vladimir.prusakovs@gmail.com"
-__url__ = "https://github.com/vladimirs-git/logger"
+__url__ = "https://github.com/vladimirs-git/logger-color"
 __download_url__ = f"{__url__}/archive/refs/tags/{__version__}.tar.gz"
 __license__ = "MIT"

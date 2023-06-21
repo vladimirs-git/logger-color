@@ -52,7 +52,7 @@ or install the package from github.com release
 
 .. code:: bash
 
-    pip install https://github.com/vladimirs-git/logger-color/archive/refs/tags/0.0.6.tar.gz
+    pip install https://github.com/vladimirs-git/logger-color/archive/refs/tags/0.0.8.tar.gz
 
 
 start_logging()

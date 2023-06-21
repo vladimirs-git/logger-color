@@ -137,9 +137,9 @@ class CLogger:
     def _check_dir_write(path: str) -> None:
         """Check directory write permission"""
         if not os.path.exists(path):
-            raise OSError(f"absent {path=}")
+            raise OSError(f"Directory does not exist: {path}")
         if not os.access(path, os.W_OK):
-            raise OSError(f"write permission error {path=}")
+            raise OSError(f"No write permission for directory: {path}")
 
     def _add_stream_handler(self) -> None:
         """Adds StreamHandler to Logger"""
@@ -154,10 +154,10 @@ class CLogger:
         """Add FileHandler to Logger, logging WARNING if it does not have write-permissions"""
         if not self.filename:
             return
-        path = str(Path(self.filename).parent)
         logger = logging.getLogger()
         try:
-            self._check_dir_write(path)
+            # path = str(Path(self.filename).parent)
+            # self._check_dir_write(path)
             handler = logging.FileHandler(filename=self.filename, mode=self.mode)
             formatter = self._init_formatter(level=self.level_file)
             handler.setFormatter(fmt=formatter)

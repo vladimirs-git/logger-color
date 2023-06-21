@@ -32,8 +32,8 @@ __all__ = [
 ]
 
 __title__ = "logger_color"
-__version__ = "0.0.6"
-__date__ = "2022-10-28"
+__version__ = "0.0.8"
+__date__ = "2023-06-21"
 
 __summary__ = "Different logging levels for stram (terminal) and file. Color the log messages. " \
               "Has additional levels for diagnostics: DIAG_INFO, DIAG_WARNING."

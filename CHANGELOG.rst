@@ -4,6 +4,11 @@
 CHANGELOG
 =========
 
+0.0.8 (2023-06-21)
+------------------
+* [fix] CLogger._check_dir_write() in docker
+
+
 0.0.6 (2022-10-28)
 ------------------
 * [new] Sets different logging levels for stram (terminal) and file.

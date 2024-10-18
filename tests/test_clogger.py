@@ -1,78 +1,73 @@
-"""Unittests package logger_color.py"""
+"""Tests logger_color"""
 
-import unittest
+import pytest
 
 from logger_color import CLogger
 
 
-class Test(unittest.TestCase):
-    """Logger"""
+@pytest.mark.parametrize("params, expected", [
+    ({}, True),
+    ({"color": None}, True),
+    ({"color": True}, True),
+    ({"color": False}, False),
+    ({"color": 0}, False),
+    ({"color": 1}, True),
+])
+def test__init_color(params, expected):
+    """CLogger._init_color()"""
+    logger = CLogger()
 
-    def test_valid__init_color(self):
-        """Logger._init_color()"""
-        logger = CLogger()
-        for kwargs, req in [
-            ({}, True),
-            (dict(color=None), True),
-            (dict(color=True), True),
-            (dict(color=False), False),
-            (dict(color=0), False),
-            (dict(color=1), True),
-        ]:
-            result = logger._init_color(**kwargs)
-            self.assertEqual(result, req, msg=f"{kwargs=}")
+    actual = logger._init_color(**params)
 
-    def test_valid__init_level(self):
-        """Logger._init_level()"""
-        logger = CLogger()
-        for kwargs, req in [
-            ({}, 20),
-            (dict(debug=True), 10),
-            (dict(debug=False), 20),
-            (dict(debug=0), 20),
-            (dict(debug=1), 10),
-            (dict(level=None), 20),
-            (dict(level=11), 11),
-            (dict(level="debug"), 10),
-            (dict(level="info"), 20),
-            (dict(level="warning"), 30),
-            (dict(level="error"), 40),
-            (dict(level="fatal"), 50),
-            (dict(level="critical"), 50),
-            (dict(level="DEBUG"), 10),
-            (dict(level="INFO"), 20),
-            (dict(level="WARNING"), 30),
-            (dict(level="ERROR"), 40),
-            (dict(level="FATAL"), 50),
-            (dict(level="CRITICAL"), 50),
-            (dict(debug=True, level="warning"), 10),
-            (dict(debug=False, level="warning"), 30),
-        ]:
-            result = logger._init_level(**kwargs)
-            self.assertEqual(result, req, msg=f"{kwargs=}")
-
-    def test_valid__init_mode(self):
-        """Logger._init_mode()"""
-        logger = CLogger()
-        for kwargs, req in [
-            ({}, "w"),
-            (dict(mode=None), "w"),
-            (dict(mode="a"), "a"),
-            (dict(mode="w"), "w"),
-        ]:
-            result = logger._init_mode(**kwargs)
-            self.assertEqual(result, req, msg=f"{kwargs=}")
-
-    def test_invalid__init_mode(self):
-        """Logger._init_mode()"""
-        logger = CLogger()
-        for kwargs, error in [
-            (dict(mode=0), ValueError),
-            (dict(mode="r"), ValueError),
-        ]:
-            with self.assertRaises(error, msg=f"{kwargs=}"):
-                logger._init_mode(**kwargs)
+    assert actual == expected
 
 
-if __name__ == "__main__":
-    unittest.main()
+@pytest.mark.parametrize("params, expected", [
+    ({}, 20),
+    ({"debug": True}, 10),
+    ({"debug": False}, 20),
+    ({"debug": 0}, 20),
+    ({"debug": 1}, 10),
+    ({"level": None}, 20),
+    ({"level": 11}, 11),
+    ({"level": "debug"}, 10),
+    ({"level": "info"}, 20),
+    ({"level": "warning"}, 30),
+    ({"level": "error"}, 40),
+    ({"level": "fatal"}, 50),
+    ({"level": "critical"}, 50),
+    ({"level": "DEBUG"}, 10),
+    ({"level": "INFO"}, 20),
+    ({"level": "WARNING"}, 30),
+    ({"level": "ERROR"}, 40),
+    ({"level": "FATAL"}, 50),
+    ({"level": "CRITICAL"}, 50),
+    ({"debug": True, "level": "warning"}, 10),
+    ({"debug": False, "level": "warning"}, 30),
+])
+def test__init_level(params, expected):
+    """CLogger._init_level()"""
+    logger = CLogger()
+
+    actual = logger._init_level(**params)
+
+    assert actual == expected
+
+
+@pytest.mark.parametrize("params, expected", [
+    ({}, "w"),
+    ({"mode": None}, "w"),
+    ({"mode": "a"}, "a"),
+    ({"mode": "w"}, "w"),
+    ({"mode": 0}, ValueError),
+    ({"mode": "r"}, ValueError),
+])
+def test__init_mode(params, expected):
+    """CLogger._init_mode()"""
+    logger = CLogger()
+    if isinstance(expected, str):
+        actual = logger._init_mode(**params)
+        assert actual == expected
+    else:
+        with pytest.raises(expected):
+            logger._init_mode(**params)

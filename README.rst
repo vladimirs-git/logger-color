@@ -7,8 +7,7 @@
 logger-color
 ============
 
-Different logging levels for stram (terminal) and file. Color the log messages.
-Has additional levels for diagnostics: DIAG_INFO, DIAG_WARNING.
+Color the log message headers and add more logging levels for diagnostics: DIAG_INFO, DIAG_WARNING.
 
 ============== ===== ===========
 Level          Int   Color
@@ -22,9 +21,8 @@ DIAG_INFO      21    blue
 DIAG_WARNING   31    blue bold
 ============== ===== ===========
 
-
-.. contents:: **Contents**
-	:local:
+.. image:: .\docs\img
+   :alt: Colored messages
 
 
 Requirements
@@ -47,12 +45,6 @@ or install the package from github.com repository
 .. code:: bash
 
     pip install git+https://github.com/vladimirs-git/logger-color
-
-or install the package from github.com release
-
-.. code:: bash
-
-    pip install https://github.com/vladimirs-git/logger-color/archive/refs/tags/0.0.8.tar.gz
 
 
 start_logging()

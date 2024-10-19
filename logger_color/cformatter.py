@@ -11,7 +11,7 @@ DiFormatter = Dict[int, Formatter]
 NO_COLOR = "\33[0m"
 GRAY = "\33[90m"
 BLUE = "\33[34m"
-BLUE_BOLD = "\33[34;1m"
+PURPLE = "\33[35m"
 GREEN = "\33[1;32m"
 RED = "\33[31m"
 RED_BOLD = "\33[31;1m"
@@ -29,7 +29,7 @@ COLORS = {
 
     NOTSET: NO_COLOR,
     DIAG_INFO: BLUE,
-    DIAG_WARNING: BLUE_BOLD,
+    DIAG_WARNING: PURPLE,
 }
 COLORS_ = {
     "DEBUG": GRAY,
@@ -40,7 +40,7 @@ COLORS_ = {
 
     "NOTSET": NO_COLOR,
     "DIAG_INFO": BLUE,
-    "DIAG_WARNING": BLUE_BOLD,
+    "DIAG_WARNING": PURPLE,
 }
 
 
@@ -96,12 +96,14 @@ class CFormatter(Formatter):
     @staticmethod
     def _update_record(record: LogRecord) -> None:
         """Updates data in LogRecord. Change message color.
-        if record.levelno == 21 > record.levelname = DIAG_INFO
-        if record.levelno == 31 > record.levelname = DIAG_WARNING
+
+        if record.levelno == 21, then record.levelname = DIAG_I
+        if record.levelno == 31, then record.levelname = DIAG_W
         """
         if record.levelno not in [DIAG_INFO, DIAG_WARNING]:
             return
-        record.msg = f"{BLUE}{record.msg}{NO_COLOR}"
+        # record.msg = f"{BLUE}{record.msg}{NO_COLOR}"
+
         if record.levelno == DIAG_INFO:
             record.levelname = "DIAG_I"
         elif record.levelno == DIAG_WARNING:

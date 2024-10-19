@@ -18,17 +18,17 @@ WARNING        30    yellow
 ERROR          40    red
 CRITICAL       50    bold red
 DIAG_INFO      21    blue
-DIAG_WARNING   31    blue bold
+DIAG_WARNING   31    purple
 ============== ===== ===========
 
-.. image:: .\docs\img
-   :alt: Colored messages
+.. image:: .\docs\img\message_colors.png
+   :alt: Message colors
 
 
 Requirements
 ------------
 
-Python >=3.8
+Python >=3.8,<3.12
 
 
 Installation

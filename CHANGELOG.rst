@@ -4,10 +4,12 @@
 CHANGELOG
 =========
 
-0.1.0 (2024-10-18)
+0.1.0 (2024-10-19)
 ------------------
 
 *Added:* pyproject.toml
+
+*Changed:*  DIAG_WARNING: BLUE_BOLD to PURPLE
 
 
 0.0.8 (2023-06-21)

@@ -5,7 +5,6 @@ import os
 import sys
 from logging import DEBUG, INFO
 from logging import Formatter
-from pathlib import Path
 
 from logger_color.cformatter import CFormatter, UFormatter
 
@@ -156,8 +155,6 @@ class CLogger:
             return
         logger = logging.getLogger()
         try:
-            # path = str(Path(self.filename).parent)
-            # self._check_dir_write(path)
             handler = logging.FileHandler(filename=self.filename, mode=self.mode)
             formatter = self._init_formatter(level=self.level_file)
             handler.setFormatter(fmt=formatter)

@@ -1,8 +1,16 @@
 """logger-color"""
 
 from logger_color.clogger import CLogger
-from logger_color.functions import debug, info, warning, error, critical
-from logger_color.functions import start_logging, diag_info, diag_warning
+from logger_color.functions import (
+    critical,
+    debug,
+    diag_info,
+    diag_warning,
+    error,
+    info,
+    start_logging,
+    warning,
+)
 
 __all__ = [
     "CLogger",

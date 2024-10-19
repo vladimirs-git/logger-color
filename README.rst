@@ -1,7 +1,7 @@
 
 .. image:: https://img.shields.io/pypi/v/logger-color.svg
    :target: https://pypi.python.org/pypi/logger-color
-.. image:: https://img.shields.io/pypi/pyversions/logger-color.svg
+.. image:: https://img.shields.io/badge/Python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue.svg
    :target: https://pypi.python.org/pypi/logger-color
 
 logger-color

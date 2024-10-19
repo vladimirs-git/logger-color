@@ -21,7 +21,7 @@ DIAG_INFO      21    blue
 DIAG_WARNING   31    purple
 ============== ===== ===========
 
-.. image:: .\docs\img\message_colors.png
+.. image:: https://github.com/vladimirs-git/logger-color/blob/main/docs/img/message_colors.png
    :alt: Message colors
 
 

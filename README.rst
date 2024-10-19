@@ -22,7 +22,6 @@ DIAG_WARNING   31    purple
 ============== ===== ===========
 
 .. image:: .\docs\img\message_colors.png
-
    :alt: Message colors
 
 
